@@ -7,8 +7,6 @@ type Props = {
   onDelete(taskType: TaskType): void
 }
 
-const fmt = (n: number) => new Date(n).toLocaleString()
-
 export default function TaskList({ taskType, onToggle, onEdit, onDelete }: Props) {
   return (
     <li className={"item " + (taskType.done ? 'done' : '')} role="listitem">
