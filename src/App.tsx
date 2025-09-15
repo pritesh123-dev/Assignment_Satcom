@@ -19,15 +19,15 @@ export default function App() {
   const [editingId, setEditingId] = useState<number | null>(null)
   const [error, setError] = useState<string>('')
 
-  // Persist to localStorage on change
+
   useEffect(() => { setTask(tasks) }, [tasks])
 
-  // Ensure reverse-chronological order (newest first)
+
   const ordered = useMemo(() => {
     return [...tasks].sort((a, b) => b.createdAt - a.createdAt)
   }, [tasks])
 
-  // Accessibility: focus title field when starting edit
+  
   const titleRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
     if (editingId && titleRef.current) titleRef.current.focus()
